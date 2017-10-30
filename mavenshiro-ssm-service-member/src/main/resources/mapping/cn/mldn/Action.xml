@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 要实现去数据层编写，该命名空间必须与DAO接口名称完全一致 -->
+
+
+
+<!--################################################## -->
+<mapper namespace="cn.mldn.mavenshiro.ssm.dao.IActionDAO"><!-- 需要修改 -->
+<!--################################################## -->
+	<select id="findAllByMember" parameterType="String"	resultType="String">
+	SELECT actid FROM action WHERE rid IN(
+	SELECT rid FROM member_role WHERE mid=#{mid})
+	
+	</select>
+
+</mapper>
